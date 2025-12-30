@@ -1,240 +1,395 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>WarshATR | Tech Community</title>
-<meta name="description" content="WarshATR — Comunidad tecnológica moderna">
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<style>
-:root{
-  --bg:#0b0f14;
-  --card:#0f141c;
-  --border:rgba(120,200,255,.25);
-  --cyan:#7fdcff;
-  --text:#cfd8e3;
-  --muted:#8b98a9;
-}
-
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  font-family:Inter,sans-serif;
-  background:
-    radial-gradient(circle at center, rgba(127,220,255,.06), transparent 60%),
-    var(--bg);
-  color:var(--text);
-  min-height:100vh;
-}
-
-nav{
-  position:fixed;
-  top:0; width:100%;
-  backdrop-filter: blur(10px);
-  background:rgba(0,0,0,.6);
-  border-bottom:1px solid var(--border);
-  z-index:10;
-}
-
-.nav-container{
-  max-width:1200px;
-  margin:auto;
-  padding:16px 24px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.logo{
-  font-weight:800;
-  color:var(--cyan);
-  letter-spacing:1px;
-}
-
-.nav-links a{
-  margin-left:24px;
-  text-decoration:none;
-  color:var(--muted);
-  font-size:.9rem;
-}
-
-.nav-links a:hover{color:var(--cyan)}
-
-.hero-wrap{
-  display:flex;
-  justify-content:center;
-  margin-top:120px;
-  padding:0 20px;
-}
-
-.hero{
-  max-width:900px;
-  background:linear-gradient(180deg,rgba(127,220,255,.05),transparent);
-  border:1px solid var(--border);
-  border-radius:16px;
-  padding:60px 40px;
-  text-align:center;
-  box-shadow:0 0 60px rgba(0,0,0,.6);
-}
-
-.hero h1{
-  font-size:3.2rem;
-  font-weight:800;
-  color:var(--cyan);
-}
-
-.hero span{
-  display:block;
-  margin-top:10px;
-  letter-spacing:2px;
-  color:var(--muted);
-  font-size:.85rem;
-}
-
-.hero p{
-  margin-top:30px;
-  color:var(--text);
-  line-height:1.6;
-  font-size:.95rem;
-}
-
-.hero a{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  margin-top:40px;
-  padding:14px 34px;
-  background:var(--cyan);
-  color:#000;
-  border-radius:10px;
-  text-decoration:none;
-  font-weight:700;
-}
-
-.section{
-  max-width:1200px;
-  margin:100px auto 0;
-  padding:0 20px;
-}
-
-.section h2{
-  text-align:center;
-  font-size:1.8rem;
-  margin-bottom:10px;
-}
-
-.section p{
-  text-align:center;
-  color:var(--muted);
-  margin-bottom:50px;
-}
-
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:24px;
-}
-
-.card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:30px;
-  transition:.25s;
-}
-
-.card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 0 30px rgba(127,220,255,.08);
-}
-
-.card i{
-  font-size:1.8rem;
-  color:var(--cyan);
-  margin-bottom:15px;
-}
-
-.card h3{
-  margin-bottom:10px;
-}
-
-.card p{
-  color:var(--muted);
-  font-size:.9rem;
-  line-height:1.5;
-}
-
-footer{
-  margin-top:120px;
-  padding:30px;
-  text-align:center;
-  color:#5f6b7a;
-  border-top:1px solid var(--border);
-  font-size:.8rem;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MinePingHosting - Minecraft">
+    <title>MinePingHosting - Host24/7</title>
+  
+    <!-- FAVICON -->
+    <link rel="icon" href="https://imgur.com/a/vm3uM2F" type="image/png">
+  
+    <style>
+        :root {
+            --primary: #38bdf8;
+            --primary-dark: #0ea5e9;
+            --bg: #0f172a;
+            --text: #e0f6fc;
+            --text-muted: #94a3b8;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10,20,40,0.9);
+            backdrop-filter: blur(12px);
+            padding: 1rem 0;
+            z-index: 1000;
+        }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 1rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 2.4rem; font-weight: bold; background: linear-gradient(90deg, var(--primary), #a5f3fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .menu-links a { color: var(--text-muted); text-decoration: none; margin: 0 1.2rem; font-weight: 500; transition: color 0.4s ease; cursor: pointer; }
+        .menu-links a:hover { color: var(--primary); }
+      
+        header {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10rem 2rem 6rem;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #0a1428, #0f172a);
+        }
+        #snow-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.85; z-index: 1; }
+      
+        .hero-content { position: relative; z-index: 2; }
+      
+        .hero-img {
+            width: 550px;
+            max-width: 95%;
+            margin-bottom: 2rem;
+            border-radius: 24px;
+            opacity: 0;
+            transform: translateY(60px) scale(0.92);
+            animation: logoFloatIn 4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            filter: drop-shadow(0 0 40px rgba(56, 189, 248, 0.6));
+            transition: all 1.2s ease;
+        }
+        @keyframes logoFloatIn {
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .hero-img:hover {
+            filter: drop-shadow(0 0 70px rgba(56, 189, 248, 0.9));
+            transform: translateY(-10px) scale(1.02);
+        }
+        @keyframes breatheGlow {
+            0%, 100% { filter: drop-shadow(0 0 40px rgba(56, 189, 248, 0.6)); }
+            50% { filter: drop-shadow(0 0 60px rgba(56, 189, 248, 0.8)); }
+        }
+        .hero-img { animation: logoFloatIn 4s cubic-bezier(0.22, 1, 0.36, 1) forwards, breatheGlow 10s ease-in-out infinite; }
+      
+        h1 { font-size: 5rem; margin-bottom: 1rem; background: linear-gradient(90deg, var(--primary), #a5f3fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .subtitle { font-size: 1.8rem; color: var(--text-muted); margin-bottom: 3rem; }
+      
+        .ip-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1.5rem 4rem;
+            border-radius: 16px;
+            font-size: 2.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 2rem;
+            transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            box-shadow: 0 10px 30px rgba(56,189,248,0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        .ip-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.8s;
+        }
+        .ip-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-8px) scale(1.08);
+            box-shadow: 0 20px 50px rgba(56,189,248,0.6);
+        }
+        .ip-btn:hover::before {
+            left: 100%;
+        }
+        .ip-btn:active {
+            transform: translateY(-4px) scale(1.05);
+            animation: clickPulse 0.6s ease;
+        }
+        @keyframes clickPulse {
+            0% { box-shadow: 0 10px 30px rgba(56,189,248,0.4); }
+            50% { box-shadow: 0 0 60px rgba(74,222,128,0.8); }
+            100% { box-shadow: 0 20px 50px rgba(56,189,248,0.6); }
+        }
+      
+        .status { display: inline-flex; align-items: center; background: #166534; color: #dcffdc; padding: 0.8rem 1.5rem; border-radius: 50px; font-weight: bold; margin: 1rem; }
+        .dot { width: 12px; height: 12px; background: #4ade80; border-radius: 50%; margin-right: 0.8rem; animation: pulse 2.5s infinite; }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(74,222,128,0.5); } 70% { box-shadow: 0 0 0 12px rgba(74,222,128,0); } 100% { box-shadow: 0 0 0 0 rgba(74,222,128,0); } }
+      
+        footer { background: #0a101f; padding: 4rem 2rem; text-align: center; color: var(--text-muted); font-size: 1.1rem; }
+      
+        /* MODALES "PRÓXIMAMENTE" EN ROJO */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .modal.active {
+            opacity: 1;
+        }
+        .modal-content {
+            background: #1a2333;
+            padding: 4rem;
+            border-radius: 24px;
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 80px rgba(56,189,248,0.6);
+            position: relative;
+            transform: translateY(100px) scale(0.9);
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .modal.active .modal-content {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+        .modal-logo {
+            width: 220px;
+            margin-bottom: 2.5rem;
+            border-radius: 20px;
+            filter: drop-shadow(0 0 30px rgba(56,189,248,0.7));
+        }
+        .coming-soon {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #ff3333;
+            text-shadow: 0 0 20px rgba(255,51,51,0.8);
+            margin: 2rem 0;
+        }
+        .close-modal {
+            position: absolute;
+            top: 1rem; right: 1.5rem;
+            font-size: 2.5rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: color 0.4s;
+        }
+        .close-modal:hover { color: var(--primary); }
+      
+        @media (max-width: 768px) {
+            .coming-soon { font-size: 2.5rem; }
+            .modal-logo { width: 180px; }
+        }
+    </style>
 </head>
-
 <body>
-
-<nav>
-  <div class="nav-container">
-    <div class="logo">⚡ WARSHATR</div>
-    <div class="nav-links">
-      <a href="#">Home</a>
-      <a href="#">Tools</a>
-      <a href="#">Downloads</a>
-      <a href="#">News</a>
-      <a href="#">Market</a>
+    <nav>
+        <div class="container">
+            <div class="logo">MinePingHosting 🎄</div>
+            <div class="menu-links">
+                <a id="open-hosting">Hosting</a>
+                <a id="open-vps">VPS</a>
+                <a id="open-support">Soporte 24/7</a>
+                <a id="open-tickets">Tickets</a>
+                <a id="open-dominios">Dominios</a>
+                <a id="open-panels">Panels</a>
+                <a id="open-discord">Discord</a>
+            </div>
+        </div>
+    </nav>
+    <header id="inicio">
+        <canvas id="snow-canvas"></canvas>
+      
+        <div class="hero-content">
+            <img src="https://imgur.com/a/vm3uM2F" alt="MinePingHosting Logo" class="hero-img">
+          
+            <h1>MinePingHosting</h1>
+            <p class="subtitle">El hosting de Minecraft más épico del invierno ❄️⛏️</p>
+          
+            <div class="status">
+                <div class="dot"></div>
+                ONLINE - 0/1000 jugadores
+            </div>
+          
+            <button class="ip-btn" onclick="navigator.clipboard.writeText('minewarsh.net'); alert('¡IP copiada!')">proximamente.net</button>
+        </div>
+    </header>
+    <footer>
+        <p>&copy; 2026 MinePingHosting - Todos los derechos reservados a - [🎩] TioPanCraft</p>
+    </footer>
+    <!-- TODOS LOS MODALES "PRÓXIMAMENTE" EN ROJO -->
+    <div id="hosting-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-hosting">&times;</span>
+            <img src="https://imgur.com/a/vm3uM2F.png" alt="MinePingHosting" class="modal-logo">
+            <div class="coming-soon">PróximamentePaneles</div>
+        </div>
     </div>
-  </div>
-</nav>
-
-<div class="hero-wrap">
-  <div class="hero">
-    <h1>WARSHATR</h1>
-    <span>TECH COMMUNITY</span>
-    <p>
-      Bienvenido a WarshATR, una comunidad enfocada en tecnología,
-      programación, networking y ciberseguridad defensiva.
-      Un entorno moderno, claro y bien estructurado para aprender
-      y crear proyectos reales.
-    </p>
-    <a href="#">
-      <i class="fab fa-discord"></i> JOIN DISCORD SERVER
-    </a>
-  </div>
-</div>
-
-<section class="section">
-  <h2>Why Join WarshATR?</h2>
-  <p>Your gateway to technology</p>
-
-  <div class="cards">
-    <div class="card">
-      <i class="fas fa-code"></i>
-      <h3>Development</h3>
-      <p>Proyectos, guías y recursos para desarrolladores modernos.</p>
+    <div id="vps-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-vps">&times;</span>
+            <img src="https://imgur.com/a/vm3uM2F.png" alt="MinePingHosting" class="modal-logo">
+            <div class="coming-soon">PróximamenteVPS</div>
+        </div>
     </div>
-    <div class="card">
-      <i class="fas fa-shield-halved"></i>
-      <h3>Security</h3>
-      <p>Buenas prácticas y conocimiento en ciberseguridad defensiva.</p>
+    <div id="support-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-support">&times;</span>
+            <img src="https://imgur.com/a/vm3uM2F.png" alt="MinePingHosting" class="modal-logo">
+            <div class="coming-soon">PróximamenteSoporte las 24/7</div>
+        </div>
     </div>
-    <div class="card">
-      <i class="fas fa-users"></i>
-      <h3>Community</h3>
-      <p>Un espacio activo para aprender, compartir y crecer juntos.</p>
+    <div id="tickets-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-tickets">&times;</span>
+            <img src="https://i.imgur.com/OOnj1pF.png" alt="MinePingHosting" class="modal-logo">
+            <div class="coming-soon">PróximamenteTickets</div>
+        </div>
     </div>
-  </div>
-</section>
-
-<footer>
-  © 2025 WarshATR — All rights reserved
-</footer>
-
+    <div id="dominios-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-dominios">&times;</span>
+            <img src="https://imgur.com/a/vm3uM2F.png" alt="MinePingHosting" class="modal-logo">
+            <div class="coming-soon">Próximamente Dominios</div>
+        </div>
+    </div>
+    <div id="panels-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-panels">&times;</span>
+            <img src="https://imgur.com/a/vm3uM2F.png" alt="MinePingHosting" class="modal-logo">
+            <div class="coming-soon">Próximamente Panels</div>
+        </div>
+    </div>
+    <div id="discord-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-discord">&times;</span>
+            <img src="https://imgur.com/a/vm3uM2F.png" alt="MinePingHosting" class="modal-logo">
+            <div class="coming-soon">Próximamente Discord</div>
+        </div>
+    </div>
+    <script>
+        // Abrir/cerrar todos los modales
+        const modals = {
+            hosting: document.getElementById('hosting-modal'),
+            vps: document.getElementById('vps-modal'),
+            support: document.getElementById('support-modal'),
+            tickets: document.getElementById('tickets-modal'),
+            dominios: document.getElementById('dominios-modal'),
+            panels: document.getElementById('panels-modal'),
+            discord: document.getElementById('discord-modal')
+        };
+       
+        const openIds = ['open-hosting', 'open-vps', 'open-support', 'open-tickets', 'open-dominios', 'open-panels', 'open-discord'];
+        const closeIds = ['close-hosting', 'close-vps', 'close-support', 'close-tickets', 'close-dominios', 'close-panels', 'close-discord'];
+       
+        openIds.forEach((id, index) => {
+            const key = Object.keys(modals)[index];
+            document.getElementById(id).onclick = () => {
+                modals[key].style.display = 'flex';
+                setTimeout(() => modals[key].classList.add('active'), 10);
+            }
+            document.getElementById(closeIds[index]).onclick = () => {
+                modals[key].classList.remove('active');
+                setTimeout(() => modals[key].style.display = 'none', 500);
+            }
+        });
+       
+        window.onclick = (e) => {
+            Object.values(modals).forEach(modal => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    setTimeout(() => modal.style.display = 'none', 500);
+                }
+            });
+        }
+      
+        // NIEVE INTENSA CON ANIMACIÓN DE SALIDA (EXPLOSIÓN AL TOCAR EL SUELO)
+        const canvas = document.getElementById('snow-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const snowflakes = [];
+        const particles = []; // Partículas para la explosión
+        
+        // Crear copos principales
+        for (let i = 0; i < 300; i++) {
+            snowflakes.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                r: Math.random() * 5 + 1,
+                s: Math.random() * 2 + 0.8,
+                drift: Math.random() * 2 - 1,
+                wave: Math.random() * 100
+            });
+        }
+        
+        function createParticles(x, y, r) {
+            for (let i = 0; i < 12; i++) {
+                particles.push({
+                    x: x,
+                    y: y,
+                    vx: Math.random() * 6 - 3,
+                    vy: Math.random() * -4 - 1,
+                    r: r * (Math.random() * 0.5 + 0.3),
+                    alpha: 1,
+                    life: 30 + Math.random() * 20
+                });
+            }
+        }
+        
+        function drawSnow() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Dibujar copos principales
+            ctx.fillStyle = 'rgba(220, 250, 255, 0.9)';
+            snowflakes.forEach(f => {
+                ctx.beginPath();
+                ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+                ctx.fill();
+                
+                f.y += f.s;
+                f.x += f.drift + Math.sin(f.wave + f.y / 40) * 1.2;
+                
+                // Si llega al fondo → explosión de partículas
+                if (f.y > canvas.height + f.r) {
+                    createParticles(f.x, canvas.height, f.r);
+                    // Reiniciar copo desde arriba
+                    f.y = -f.r;
+                    f.x = Math.random() * canvas.width;
+                }
+            });
+            
+            // Dibujar y actualizar partículas
+            particles.forEach((p, index) => {
+                ctx.globalAlpha = p.alpha;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fill();
+                
+                p.x += p.vx;
+                p.y += p.vy;
+                p.vy += 0.1; // gravedad
+                p.alpha -= 0.02;
+                p.life--;
+                
+                if (p.life <= 0 || p.alpha <= 0) {
+                    particles.splice(index, 1);
+                }
+            });
+            ctx.globalAlpha = 1;
+            
+            requestAnimationFrame(drawSnow);
+        }
+        drawSnow();
+        
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
 </body>
 </html>
