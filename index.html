@@ -9,21 +9,25 @@
 :root{--bg:#0a1624;--cyan:#00f2ff;--glow:#00ffff;--text:#e0f7ff;--gray:#a0c8d6}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Roboto',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;position:relative;overflow-x:hidden}
-.snow{color:#fff;position:absolute;top:-10px;animation:fall linear forwards;pointer-events:none;opacity:.8}
-@keyframes fall{to{transform:translateY(100vh)}}
-header{padding:20px 40px;display:flex;justify-content:space-between;align-items:center;z-index:10}
+#snow{position:fixed;inset:0;pointer-events:none;z-index:1} /* Cubre toda la página */
+.snow{color:#fff;position:absolute;top:-20px;animation:fall linear forwards;pointer-events:none;opacity:.8}
+@keyframes fall{
+  0%{transform:translateY(0)}
+  100%{transform:translateY(200vh)} /* Ahora cae más allá de la pantalla */
+}
+header{padding:20px 40px;display:flex;justify-content:space-between;align-items:center;z-index:10;position:relative}
 .logo{font-family:'Orbitron',sans-serif;font-size:2rem;color:var(--cyan);text-shadow:0 0 15px var(--glow);display:flex;gap:10px;align-items:center}
 .logo span{font-size:1.5rem}
 nav ul{display:flex;list-style:none;gap:30px}
 nav a{color:var(--gray);text-decoration:none;font-weight:500;transition:.3s}
 nav a:hover{color:var(--cyan);text-shadow:0 0 8px var(--glow)}
-.hero{height:80vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;z-index:2}
+.hero{height:80vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;z-index:2;position:relative}
 .hero h1{font-family:'Orbitron',sans-serif;font-size:5rem;color:var(--cyan);text-shadow:0 0 30px var(--glow);margin-bottom:20px}
 .hero p{font-size:1.8rem;margin-bottom:40px;display:flex;align-items:center;gap:15px}
 .status{background:rgba(0,200,100,.2);color:#00ff9d;padding:10px 25px;border-radius:50px;border:1px solid #00ff9d;font-weight:bold;margin-bottom:40px;box-shadow:0 0 15px rgba(0,255,157,.4)}
 .btn-prox{background:linear-gradient(45deg,#00d4ff,#0099ff);color:#fff;font-size:2rem;font-weight:bold;padding:20px 60px;border-radius:50px;border:none;cursor:pointer;box-shadow:0 0 30px rgba(0,212,255,.6);transition:.3s}
 .btn-prox:hover{transform:scale(1.05);box-shadow:0 0 50px rgba(0,212,255,.8)}
-.plans{padding:80px 40px;text-align:center;max-width:1400px;margin:auto}
+.plans{padding:80px 40px;text-align:center;max-width:1400px;margin:auto;position:relative;z-index:2}
 .plans h2{font-family:'Orbitron',sans-serif;font-size:3.5rem;color:var(--cyan);text-shadow:0 0 20px var(--glow);margin-bottom:20px}
 .plans > p{font-size:1.4rem;color:var(--gray);margin-bottom:60px}
 .grid{display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
@@ -39,7 +43,7 @@ nav a:hover{color:var(--cyan);text-shadow:0 0 8px var(--glow)}
 .features li:before{content:"✓ ";color:#00ff9d;font-weight:bold}
 .btn{background:linear-gradient(45deg,#00d4ff,#0099ff);color:#fff;border:none;padding:15px 40px;border-radius:50px;font-size:1.2rem;font-weight:bold;cursor:pointer;width:100%;margin-top:20px;box-shadow:0 0 20px rgba(0,212,255,.5);transition:.3s}
 .btn:hover{transform:scale(1.05);box-shadow:0 0 30px rgba(0,212,255,.8)}
-footer{text-align:center;padding:30px;color:var(--gray);font-size:.9rem;z-index:10}
+footer{text-align:center;padding:30px;color:var(--gray);font-size:.9rem;z-index:10;position:relative}
 footer a{color:var(--cyan);text-decoration:none}
 @media(max-width:768px){
   .hero h1{font-size:3.5rem}.hero p{font-size:1.4rem}
@@ -51,6 +55,8 @@ footer a{color:var(--cyan);text-decoration:none}
 </style>
 </head>
 <body>
+
+<!-- Contenedor de nieve que cubre toda la página -->
 <div id="snow"></div>
 
 <header>
@@ -113,11 +119,18 @@ footer a{color:var(--cyan);text-decoration:none}
 <footer>© 2025 MinePingHosting - Todos los derechos reservados a - <a href="#">TipPanCraft</a></footer>
 
 <script>
-function snow(){const f=document.createElement('div');f.classList.add('snow');f.textContent=['❄','•','◦','✦'][Math.floor(Math.random()*4)];
-f.style.left=Math.random()*100+'vw';f.style.fontSize=Math.random()*0.7+0.8+'em';
-f.style.animationDuration=Math.random()*10+10+'s';document.getElementById('snow').appendChild(f);
-setTimeout(()=>f.remove(),20000)}
-setInterval(snow,200);for(let i=0;i<100;i++)setTimeout(snow,i*100);
+function snow(){
+  const f=document.createElement('div');
+  f.classList.add('snow');
+  f.textContent=['❄','•','◦','✦'][Math.floor(Math.random()*4)];
+  f.style.left=Math.random()*100+'vw';
+  f.style.fontSize=Math.random()*0.7+0.8+'em';
+  f.style.animationDuration=Math.random()*12+12+'s'; // Más lento y variado
+  document.getElementById('snow').appendChild(f);
+  setTimeout(()=>f.remove(),30000); // Más tiempo visible
+}
+setInterval(snow,180); // Un poquito más frecuente
+for(let i=0;i<120;i++)setTimeout(snow,i*80); // Más copos al inicio
 </script>
 </body>
 </html>
