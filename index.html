@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>WarshATR | Tech Community</title>
+<meta name="description" content="WarshATR — Comunidad tecnológica moderna">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root{
+  --bg:#0b0f14;
+  --card:#0f141c;
+  --border:rgba(120,200,255,.25);
+  --cyan:#7fdcff;
+  --text:#cfd8e3;
+  --muted:#8b98a9;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:Inter,sans-serif;
+  background:
+    radial-gradient(circle at center, rgba(127,220,255,.06), transparent 60%),
+    var(--bg);
+  color:var(--text);
+  min-height:100vh;
+}
+
+nav{
+  position:fixed;
+  top:0; width:100%;
+  backdrop-filter: blur(10px);
+  background:rgba(0,0,0,.6);
+  border-bottom:1px solid var(--border);
+  z-index:10;
+}
+
+.nav-container{
+  max-width:1200px;
+  margin:auto;
+  padding:16px 24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-weight:800;
+  color:var(--cyan);
+  letter-spacing:1px;
+}
+
+.nav-links a{
+  margin-left:24px;
+  text-decoration:none;
+  color:var(--muted);
+  font-size:.9rem;
+}
+
+.nav-links a:hover{color:var(--cyan)}
+
+.hero-wrap{
+  display:flex;
+  justify-content:center;
+  margin-top:120px;
+  padding:0 20px;
+}
+
+.hero{
+  max-width:900px;
+  background:linear-gradient(180deg,rgba(127,220,255,.05),transparent);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:60px 40px;
+  text-align:center;
+  box-shadow:0 0 60px rgba(0,0,0,.6);
+}
+
+.hero h1{
+  font-size:3.2rem;
+  font-weight:800;
+  color:var(--cyan);
+}
+
+.hero span{
+  display:block;
+  margin-top:10px;
+  letter-spacing:2px;
+  color:var(--muted);
+  font-size:.85rem;
+}
+
+.hero p{
+  margin-top:30px;
+  color:var(--text);
+  line-height:1.6;
+  font-size:.95rem;
+}
+
+.hero a{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-top:40px;
+  padding:14px 34px;
+  background:var(--cyan);
+  color:#000;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:700;
+}
+
+.section{
+  max-width:1200px;
+  margin:100px auto 0;
+  padding:0 20px;
+}
+
+.section h2{
+  text-align:center;
+  font-size:1.8rem;
+  margin-bottom:10px;
+}
+
+.section p{
+  text-align:center;
+  color:var(--muted);
+  margin-bottom:50px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:24px;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:30px;
+  transition:.25s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 0 30px rgba(127,220,255,.08);
+}
+
+.card i{
+  font-size:1.8rem;
+  color:var(--cyan);
+  margin-bottom:15px;
+}
+
+.card h3{
+  margin-bottom:10px;
+}
+
+.card p{
+  color:var(--muted);
+  font-size:.9rem;
+  line-height:1.5;
+}
+
+footer{
+  margin-top:120px;
+  padding:30px;
+  text-align:center;
+  color:#5f6b7a;
+  border-top:1px solid var(--border);
+  font-size:.8rem;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="nav-container">
+    <div class="logo">⚡ WARSHATR</div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Tools</a>
+      <a href="#">Downloads</a>
+      <a href="#">News</a>
+      <a href="#">Market</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero-wrap">
+  <div class="hero">
+    <h1>WARSHATR</h1>
+    <span>TECH COMMUNITY</span>
+    <p>
+      Bienvenido a WarshATR, una comunidad enfocada en tecnología,
+      programación, networking y ciberseguridad defensiva.
+      Un entorno moderno, claro y bien estructurado para aprender
+      y crear proyectos reales.
+    </p>
+    <a href="#">
+      <i class="fab fa-discord"></i> JOIN DISCORD SERVER
+    </a>
+  </div>
+</div>
+
+<section class="section">
+  <h2>Why Join WarshATR?</h2>
+  <p>Your gateway to technology</p>
+
+  <div class="cards">
+    <div class="card">
+      <i class="fas fa-code"></i>
+      <h3>Development</h3>
+      <p>Proyectos, guías y recursos para desarrolladores modernos.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-shield-halved"></i>
+      <h3>Security</h3>
+      <p>Buenas prácticas y conocimiento en ciberseguridad defensiva.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-users"></i>
+      <h3>Community</h3>
+      <p>Un espacio activo para aprender, compartir y crecer juntos.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2025 WarshATR — All rights reserved
+</footer>
+
+</body>
+</html>
