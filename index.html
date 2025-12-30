@@ -3,134 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MinePingHosting</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<title>Portal Nether Animado</title>
 <style>
-:root{--bg:#0a1624;--cyan:#00f2ff;--glow:#00ffff;--text:#e0f7ff;--gray:#a0c8d6}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Roboto',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;position:relative;overflow-x:hidden}
-#snow{position:fixed;inset:0;pointer-events:none;z-index:1} /* Cubre toda la página */
-.snow{color:#fff;position:absolute;top:-20px;animation:fall linear forwards;pointer-events:none;opacity:.8}
-@keyframes fall{
-  0%{transform:translateY(0)}
-  100%{transform:translateY(200vh)} /* Ahora cae más allá de la pantalla */
+body{background:#0f0a1a;display:grid;place-items:center;height:100vh;margin:0}
+.portal{
+  width:200px;height:300px;
+  background:radial-gradient(circle at center,#4A148C 0%,#7B1FA2 50%,#120522 100%);
+  border:6px solid #BA68C8;
+  border-radius:20px;
+  position:relative;
+  overflow:hidden;
+  box-shadow:
+    0 0 60px #AB47BC,
+    inset 0 0 80px rgba(186,104,200,.4);
+  animation:pulse 3s ease-in-out infinite;
 }
-header{padding:20px 40px;display:flex;justify-content:space-between;align-items:center;z-index:10;position:relative}
-.logo{font-family:'Orbitron',sans-serif;font-size:2rem;color:var(--cyan);text-shadow:0 0 15px var(--glow);display:flex;gap:10px;align-items:center}
-.logo span{font-size:1.5rem}
-nav ul{display:flex;list-style:none;gap:30px}
-nav a{color:var(--gray);text-decoration:none;font-weight:500;transition:.3s}
-nav a:hover{color:var(--cyan);text-shadow:0 0 8px var(--glow)}
-.hero{height:80vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;z-index:2;position:relative}
-.hero h1{font-family:'Orbitron',sans-serif;font-size:5rem;color:var(--cyan);text-shadow:0 0 30px var(--glow);margin-bottom:20px}
-.hero p{font-size:1.8rem;margin-bottom:40px;display:flex;align-items:center;gap:15px}
-.status{background:rgba(0,200,100,.2);color:#00ff9d;padding:10px 25px;border-radius:50px;border:1px solid #00ff9d;font-weight:bold;margin-bottom:40px;box-shadow:0 0 15px rgba(0,255,157,.4)}
-.btn-prox{background:linear-gradient(45deg,#00d4ff,#0099ff);color:#fff;font-size:2rem;font-weight:bold;padding:20px 60px;border-radius:50px;border:none;cursor:pointer;box-shadow:0 0 30px rgba(0,212,255,.6);transition:.3s}
-.btn-prox:hover{transform:scale(1.05);box-shadow:0 0 50px rgba(0,212,255,.8)}
-.plans{padding:80px 40px;text-align:center;max-width:1400px;margin:auto;position:relative;z-index:2}
-.plans h2{font-family:'Orbitron',sans-serif;font-size:3.5rem;color:var(--cyan);text-shadow:0 0 20px var(--glow);margin-bottom:20px}
-.plans > p{font-size:1.4rem;color:var(--gray);margin-bottom:60px}
-.grid{display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
-.card{background:rgba(15,25,40,.6);backdrop-filter:blur(10px);border:1px solid rgba(0,242,255,.3);border-radius:20px;padding:40px 30px;width:320px;position:relative;transition:.4s;box-shadow:0 10px 30px #00000080}
-.card:hover{transform:translateY(-15px);border-color:var(--cyan);box-shadow:0 20px 40px rgba(0,242,255,.3)}
-.rec{border:2px solid var(--cyan);transform:scale(1.08)}
-.badge{position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:var(--cyan);color:#000;padding:8px 20px;border-radius:50px;font-weight:bold;font-size:.9rem;box-shadow:0 0 15px var(--glow)}
-.card h3{font-family:'Orbitron',sans-serif;font-size:2rem;color:var(--cyan);margin-bottom:20px}
-.price{font-size:3rem;font-weight:bold;color:var(--text);margin:20px 0}
-.price span{color:var(--cyan);text-shadow:0 0 15px var(--glow)}
-.features{list-style:none;margin:30px 0;color:var(--gray)}
-.features li{padding:10px 0;border-bottom:1px dashed rgba(0,242,255,.2)}
-.features li:before{content:"✓ ";color:#00ff9d;font-weight:bold}
-.btn{background:linear-gradient(45deg,#00d4ff,#0099ff);color:#fff;border:none;padding:15px 40px;border-radius:50px;font-size:1.2rem;font-weight:bold;cursor:pointer;width:100%;margin-top:20px;box-shadow:0 0 20px rgba(0,212,255,.5);transition:.3s}
-.btn:hover{transform:scale(1.05);box-shadow:0 0 30px rgba(0,212,255,.8)}
-footer{text-align:center;padding:30px;color:var(--gray);font-size:.9rem;z-index:10;position:relative}
-footer a{color:var(--cyan);text-decoration:none}
-@media(max-width:768px){
-  .hero h1{font-size:3.5rem}.hero p{font-size:1.4rem}
-  .btn-prox{font-size:1.5rem;padding:15px 40px}
-  nav ul{gap:15px;font-size:.9rem}
-  .grid{flex-direction:column;align-items:center}
-  .rec{transform:none}
+.portal::before{
+  content:'';position:absolute;inset:15%;
+  background:conic-gradient(from 0deg,#E1BEE7,#BA68C8,#9C27B0,#7B1FA2,transparent 70%);
+  border-radius:15px;
+  animation:spin 8s linear infinite,swirl 4s ease-in-out infinite alternate;
+  filter:blur(8px);
 }
+.portal::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(transparent 40%,rgba(124,21,162,.3) 50%,transparent 60%);
+  animation:wave 2.5s linear infinite;
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1);box-shadow:0 0 60px #AB47BC,inset 0 0 80px rgba(186,104,200,.4)}
+  50%{transform:scale(1.05);box-shadow:0 0 100px #E040FB,inset 0 0 120px rgba(224,64,251,.6)}
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes swirl{
+  0%{clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%)}
+  100%{clip-path:polygon(30% 20%,80% 30%,70% 80%,20% 70%)}
+}
+@keyframes wave{
+  0%{transform:translateY(-100%)}
+  100%{transform:translateY(100%)}
+}
+h2{color:#BA68C8;font-family:system-ui;text-align:center;margin:20px}
 </style>
 </head>
 <body>
-
-<!-- Contenedor de nieve que cubre toda la página -->
-<div id="snow"></div>
-
-<header>
-  <div class="logo">MinePingHosting <span>👻</span></div>
-  <nav><ul>
-    <li><a href="#">Hosting</a></li>
-    <li><a href="#">VPS</a></li>
-    <li><a href="#">Soporte 24/7</a></li>
-    <li><a href="#">Tickets</a></li>
-    <li><a href="#">Dominios</a></li>
-    <li><a href="#">Paneles</a></li>
-    <li><a href="#">Discord</a></li>
-  </ul></nav>
-</header>
-
-<main class="hero">
-  <h1>MinePingHosting</h1>
-  <p>El hosting de Minecraft más épico del invierno ❄️⛏️</p>
-  <div class="status">ONLINE: 0 / 1000 jugadores</div>
-  <button class="btn-prox">proximamente.net</button>
-</main>
-
-<section class="plans">
-  <h2>Nuestros Planes de Hosting</h2>
-  <p>Elige el plan perfecto para tu servidor de Minecraft</p>
-  <div class="grid">
-    <div class="card">
-      <h3>Básico</h3>
-      <div class="price"><span>$4.99</span>/mes</div>
-      <ul class="features">
-        <li>4 GB RAM</li><li>SSD NVMe</li><li>Jugadores ilimitados</li>
-        <li>Soporte básico</li><li>Backups diarios</li><li>Anti-DDoS</li>
-      </ul>
-      <button class="btn">Comprar ahora</button>
-    </div>
-    <div class="card rec">
-      <div class="badge">Más Popular</div>
-      <h3>Pro</h3>
-      <div class="price"><span>$9.99</span>/mes</div>
-      <ul class="features">
-        <li>8 GB RAM</li><li>SSD NVMe Premium</li><li>Jugadores ilimitados</li>
-        <li>Soporte prioritario 24/7</li><li>Backups cada 6h</li>
-        <li>Anti-DDoS Avanzado</li><li>Dominio gratis 1 año</li>
-      </ul>
-      <button class="btn">Comprar ahora</button>
-    </div>
-    <div class="card">
-      <h3>Premium</h3>
-      <div class="price"><span>$14.99</span>/mes</div>
-      <ul class="features">
-        <li>16 GB RAM</li><li>SSD NVMe Ultra</li><li>Jugadores ilimitados</li>
-        <li>Soporte VIP</li><li>Backups en tiempo real</li>
-        <li>IP dedicada</li><li>Optimización personalizada</li>
-      </ul>
-      <button class="btn">Comprar ahora</button>
-    </div>
-  </div>
-</section>
-
-<footer>© 2025 MinePingHosting - Todos los derechos reservados a - <a href="#">TipPanCraft</a></footer>
-
-<script>
-function snow(){
-  const f=document.createElement('div');
-  f.classList.add('snow');
-  f.textContent=['❄','•','◦','✦'][Math.floor(Math.random()*4)];
-  f.style.left=Math.random()*100+'vw';
-  f.style.fontSize=Math.random()*0.7+0.8+'em';
-  f.style.animationDuration=Math.random()*12+12+'s'; // Más lento y variado
-  document.getElementById('snow').appendChild(f);
-  setTimeout(()=>f.remove(),30000); // Más tiempo visible
-}
-setInterval(snow,180); // Un poquito más frecuente
-for(let i=0;i<120;i++)setTimeout(snow,i*80); // Más copos al inicio
-</script>
+  <div class="portal"></div>
+  <h2>Portal al Nether Activado 🟪✨</h2>
 </body>
 </html>
